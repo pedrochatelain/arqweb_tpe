@@ -3,6 +3,7 @@ package com.example.monopatinmanager.controller;
 import com.example.monopatinmanager.dto.RequestUpdateStatus;
 import com.example.monopatinmanager.dto.ResponseDTO;
 import com.example.monopatinmanager.dto.MonopatinDTO;
+import com.example.monopatinmanager.dto.StatusDTO;
 import com.example.monopatinmanager.entity.Monopatin;
 import com.example.monopatinmanager.service.MonopatinService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public class Controller {
     @GetMapping(params = "status")
     public List<Monopatin> getMonopatines(@RequestParam String status) {
         return service.getMonopatines(status);
+    }
+
+    @GetMapping(path = "status")
+    public List<StatusDTO> getStatusMonopatines() {
+        return service.getStatusMonopatines();
     }
 
 }

@@ -3,6 +3,7 @@ package com.example.monopatinmanager.service;
 import com.example.monopatinmanager.dto.RequestUpdateStatus;
 import com.example.monopatinmanager.dto.ResponseDTO;
 import com.example.monopatinmanager.dto.MonopatinDTO;
+import com.example.monopatinmanager.dto.StatusDTO;
 import com.example.monopatinmanager.entity.Monopatin;
 import com.example.monopatinmanager.repository.MonopatinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,9 @@ public class MonopatinService {
 
     public List<Monopatin> getMonopatines(String status) {
         return repository.getMonopatines(status);
+    }
+
+    public List<StatusDTO> getStatusMonopatines() {
+        return repository.getStatusMonopatines();
     }
 }
