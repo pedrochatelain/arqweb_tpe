@@ -1,6 +1,7 @@
 package com.example.monopatinmanager.controller;
 
-import com.example.monopatinmanager.dto.MonopatinCreationResponse;
+import com.example.monopatinmanager.dto.RequestUpdateStatus;
+import com.example.monopatinmanager.dto.ResponseDTO;
 import com.example.monopatinmanager.dto.MonopatinDTO;
 import com.example.monopatinmanager.service.MonopatinService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,13 @@ public class Controller {
     }
 
     @PostMapping
-    public MonopatinCreationResponse saveMonopatin(@RequestBody MonopatinDTO monopatinDTO) {
+    public ResponseDTO saveMonopatin(@RequestBody MonopatinDTO monopatinDTO) {
         return service.saveMonopatin(monopatinDTO);
+    }
+
+    @PatchMapping
+    public ResponseDTO updateStatusMonopatin(@RequestBody RequestUpdateStatus request) {
+        return service.updateStatusMonopatin(request);
     }
 
 }
