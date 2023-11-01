@@ -1,4 +1,4 @@
-package com.example.monopatinmanager;
+package com.example.monopatinmanager.controller;
 
 import org.springframework.web.bind.annotation.*;
 
