@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MonopatinService {
 
@@ -29,5 +31,9 @@ public class MonopatinService {
         monopatin.setStatus(request.getStatus());
         monopatin = repository.save(monopatin);
         return new ResponseDTO(HttpStatus.OK.value(), "Se ha editado correctamente el status", monopatin);
+    }
+
+    public List<Monopatin> getMonopatines(String status) {
+        return repository.getMonopatines(status);
     }
 }
