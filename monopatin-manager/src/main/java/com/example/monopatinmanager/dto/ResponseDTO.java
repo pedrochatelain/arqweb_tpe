@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class MonopatinCreationResponse {
+public class ResponseDTO {
 
     private int status_code;
     private String message;
