@@ -1,6 +1,6 @@
 package exa.usermanager.usermanager.service;
 
-import exa.usermanager.usermanager.dto.MercadoPagoAccountCreationResponse;
+import exa.usermanager.usermanager.dto.ResponseMercadoPagoAccountCreation;
 import exa.usermanager.usermanager.dto.MercadoPagoAccountDTO;
 import exa.usermanager.usermanager.entity.CuentaMercadoPago;
 import exa.usermanager.usermanager.repository.RepositoryMercadoPagoAccount;
@@ -21,9 +21,9 @@ public class ServiceMercadoPagoAccount {
     }
 
 
-    public MercadoPagoAccountCreationResponse createMercadoPagoAccount(MercadoPagoAccountDTO account) {
+    public ResponseMercadoPagoAccountCreation createMercadoPagoAccount(MercadoPagoAccountDTO account) {
         repository.save(new CuentaMercadoPago(account.getId(), account.getFecha_alta(), account.getMonto()));
         account.setFecha_alta(new Timestamp(System.currentTimeMillis()));
-        return new MercadoPagoAccountCreationResponse(HttpStatus.CREATED.value(), "Se ha creado la cuenta exitosamente", account);
+        return new ResponseMercadoPagoAccountCreation(HttpStatus.CREATED.value(), "Se ha creado la cuenta exitosamente", account);
     }
 }

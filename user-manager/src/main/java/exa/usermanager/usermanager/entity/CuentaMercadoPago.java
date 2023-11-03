@@ -22,17 +22,16 @@ public class CuentaMercadoPago {
     private Timestamp fecha_alta;
 
     @Column
-    @ManyToMany
-    @JoinTable(
-        name = "cuentas_usuarios",
-        joinColumns = { @JoinColumn(name = "usuario_id") },
-        inverseJoinColumns = { @JoinColumn(name = "cuenta_mercado_pago_id") }
-    )
+    @ManyToMany(mappedBy = "cuentas")
     private List<Usuario> usuarios;
 
     public CuentaMercadoPago(int id, Timestamp fecha_alta, double monto) {
         this.id = id;
         this.fecha_alta = fecha_alta;
         this.monto = monto;
+    }
+
+    public void addUser(Usuario user) {
+        usuarios.add(user);
     }
 }

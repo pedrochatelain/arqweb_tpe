@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class MercadoPagoAccountCreationResponse {
+public class ResponseMercadoPagoAccountCreation {
 
     private int status_code;
     private String message;
