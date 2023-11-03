@@ -1,4 +1,4 @@
-package exa.usermanager.usermanager;
+package exa.usermanager.usermanager.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

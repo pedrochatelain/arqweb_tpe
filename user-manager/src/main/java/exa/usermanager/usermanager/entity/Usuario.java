@@ -1,7 +1,6 @@
-package exa.usermanager.usermanager;
+package exa.usermanager.usermanager.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,11 +9,11 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 public class Usuario {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @Column
@@ -35,5 +34,10 @@ public class Usuario {
 
     @Column
     private Timestamp fecha_alta;
+
+    public Usuario(String username) {
+        this.username = username;
+        this.fecha_alta = new Timestamp(System.currentTimeMillis());
+    }
 
 }
