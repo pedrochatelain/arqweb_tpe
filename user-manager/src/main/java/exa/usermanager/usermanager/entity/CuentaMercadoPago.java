@@ -1,7 +1,6 @@
 package exa.usermanager.usermanager.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +9,6 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 public class CuentaMercadoPago {
 
@@ -32,4 +30,9 @@ public class CuentaMercadoPago {
     )
     private List<Usuario> usuarios;
 
+    public CuentaMercadoPago(int id, Timestamp fecha_alta, double monto) {
+        this.id = id;
+        this.fecha_alta = fecha_alta;
+        this.monto = monto;
+    }
 }
