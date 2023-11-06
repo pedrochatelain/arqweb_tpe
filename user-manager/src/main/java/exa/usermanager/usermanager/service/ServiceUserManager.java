@@ -38,4 +38,10 @@ public class ServiceUserManager {
         repository_mercado_pago.save(mercadoPagoAccount);
         return new ResponseAddMercadoPagoAccountToUser(HttpStatus.OK.value(), "Se vinculó correctamente la cuenta de mercado pago al usuario");
     }
+
+    public UserDTO getUser(int userId) {
+        Usuario user = repository.findById((long) userId).get();
+        UserDTO dto = new UserDTO(user.getUsername(), user.getEmail(), user.getNombre(), user.getApellido(), user.getFecha_alta());
+        return dto;
+    }
 }

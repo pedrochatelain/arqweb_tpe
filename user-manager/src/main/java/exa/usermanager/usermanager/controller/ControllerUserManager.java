@@ -29,4 +29,9 @@ public class ControllerUserManager {
         return service.addMercadoPagoAccount(user_id, account_mercado_pago);
     }
 
+    @GetMapping("{user_id}")
+    public UserDTO getUser(@PathVariable int user_id) {
+        return service.getUser(user_id);
+    }
+
 }

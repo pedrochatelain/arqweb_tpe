@@ -1,5 +1,6 @@
 package exa.usermanager.usermanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class CuentaMercadoPago {
 
     @Column
     @ManyToMany(mappedBy = "cuentas")
+    @JsonIgnore
     private List<Usuario> usuarios;
 
     public CuentaMercadoPago(int id, Timestamp fecha_alta, double monto) {
