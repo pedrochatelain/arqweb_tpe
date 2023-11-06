@@ -13,12 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/monopatines")
-public class Controller {
+public class ControllerMonopatin {
 
     private MonopatinService service;
 
     @Autowired
-    public Controller(MonopatinService service) {
+    public ControllerMonopatin(MonopatinService service) {
         this.service = service;
     }
 
@@ -32,9 +32,9 @@ public class Controller {
         return service.saveMonopatin(monopatinDTO);
     }
 
-    @PatchMapping
-    public ResponseDTO updateStatusMonopatin(@RequestBody RequestUpdateStatus request) {
-        return service.updateStatusMonopatin(request);
+    @PostMapping("{id_monopatin}/status")
+    public ResponseDTO updateStatus(@RequestBody RequestUpdateStatus request, @PathVariable int id_monopatin) {
+        return service.updateStatusMonopatin(id_monopatin, request);
     }
 
     @GetMapping(params = "status")

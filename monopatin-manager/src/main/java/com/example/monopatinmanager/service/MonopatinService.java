@@ -27,8 +27,8 @@ public class MonopatinService {
         return new ResponseDTO(HttpStatus.CREATED.value(), "Creado exitosamente", monopatin);
     }
 
-    public ResponseDTO updateStatusMonopatin(RequestUpdateStatus request) {
-        Monopatin monopatin = repository.getReferenceById((long) request.getId());
+    public ResponseDTO updateStatusMonopatin(int id_monopatin, RequestUpdateStatus request) {
+        Monopatin monopatin = repository.getReferenceById((long) id_monopatin);
         monopatin.setStatus(request.getStatus());
         monopatin = repository.save(monopatin);
         return new ResponseDTO(HttpStatus.OK.value(), "Se ha editado correctamente el status", monopatin);

@@ -1,7 +1,8 @@
 package com.viaje.viajemanager.controller;
 
 import com.viaje.viajemanager.config.RestTemplateClient;
-import com.viaje.viajemanager.dto.ResponseCreationViaje;
+import com.viaje.viajemanager.dto.RequestUpdateStatus;
+import com.viaje.viajemanager.dto.ResponseViaje;
 import com.viaje.viajemanager.dto.ViajeCreationDTO;
 import com.viaje.viajemanager.service.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,14 @@ public class ControllerViaje {
     }
 
     @PostMapping
-    public ResponseCreationViaje guardarViaje(@RequestBody ViajeCreationDTO viajeCreationDTO) {
+    public ResponseViaje guardarViaje(@RequestBody ViajeCreationDTO viajeCreationDTO) {
         return viajeService.guardarViaje(viajeCreationDTO);
     }
+
+    @PatchMapping("{id_viaje}")
+    public ResponseViaje pausarViaje(@RequestBody RequestUpdateStatus req, @PathVariable int id_viaje) {
+        return viajeService.pausarViaje(req, id_viaje);
+    }
+
 
 }
