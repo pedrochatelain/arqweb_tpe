@@ -19,4 +19,9 @@ public class ResponseViaje {
         this.message = message;
         this.viaje = viaje;
     }
+
+    public ResponseViaje(int status_code, String message) {
+        this.status_code = status_code;
+        this.message = message;
+    }
 }

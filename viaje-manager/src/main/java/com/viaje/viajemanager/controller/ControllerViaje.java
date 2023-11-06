@@ -1,7 +1,7 @@
 package com.viaje.viajemanager.controller;
 
 import com.viaje.viajemanager.config.RestTemplateClient;
-import com.viaje.viajemanager.dto.RequestUpdateStatus;
+import com.viaje.viajemanager.dto.RequestUpdateStatusViaje;
 import com.viaje.viajemanager.dto.ResponseViaje;
 import com.viaje.viajemanager.dto.ViajeCreationDTO;
 import com.viaje.viajemanager.service.ViajeService;
@@ -28,9 +28,9 @@ public class ControllerViaje {
         return viajeService.guardarViaje(viajeCreationDTO);
     }
 
-    @PatchMapping("{id_viaje}")
-    public ResponseViaje pausarViaje(@RequestBody RequestUpdateStatus req, @PathVariable int id_viaje) {
-        return viajeService.pausarViaje(req, id_viaje);
+    @PostMapping("{id_viaje}/status")
+    public ResponseViaje pausarViaje(@PathVariable int id_viaje, @RequestBody RequestUpdateStatusViaje req) {
+        return viajeService.pausarViaje(id_viaje, req);
     }
 
 

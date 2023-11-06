@@ -1,15 +1,14 @@
 package com.viaje.viajemanager.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class RequestUpdateStatus {
+public class RequestUpdateStatusViaje {
 
-    private int id;
     private String status;
 
 }
